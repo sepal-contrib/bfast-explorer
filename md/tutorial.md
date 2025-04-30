@@ -1,10 +1,10 @@
-*This tutorial comprehends the BFAST Explorer v0.0.1. Notice that if you are using a newer version, some features might be different.*
+_This tutorial comprehends the BFAST Explorer v0.0.1. Notice that if you are using a newer version, some features might be different._
 
-***
+---
 
 ## Description
 
-**BFAST Explorer** is a [Shiny](https://shiny.rstudio.com/) app, developed using R and Python, designed for the analysis of *Landsat Surface Reflectance* time series pixel data.
+**BFAST Explorer** is a [Shiny](https://shiny.rstudio.com/) app, developed using R and Python, designed for the analysis of _Landsat Surface Reflectance_ time series pixel data.
 
 Three change detection algorithms - **bfastmonitor**, **bfast01** and **bfast** - are used in order to investigate temporal changes in trend and seasonal components, via breakpoint detection.
 
@@ -17,18 +17,16 @@ properly use the tool.
 
 ### Map Tab <i class="fa fa-map-marker"></i>
 
-This is the starting tab, which we first see when we run the tool. The 
+This is the starting tab, which we first see when we run the tool. The
 tab is composed of an interactive map (rendered using Google Maps engine)
 and a navigation toolbar. Feel free to zoom and pan the map.
 
 ![md](./images/tutorial-01.jpg)
 
-If we wish to navigate to a specific location, we can use the *coordinate entry field* located at the top of the toolbar. This field accepts geographic coordinates in the format "longitude, latitude" (e.g., "-47.06,-22.82"). After entering the coordinates and clicking the search button, the map automatically zooms to the specified location.
+If we wish to navigate to a specific location, we can use the _coordinate entry field_ located at the top of the toolbar. This field accepts geographic coordinates in the format "longitude, latitude" (e.g., "-47.06,-22.82"). After entering the coordinates and clicking the search button, the map automatically zooms to the specified location.
 
-![md](./images/tutorial-02.jpg)
-
-Now, let's zoom out all the way back and place a marker at the north of 
-Brazil, as shown. To *place* a marker, simply click on the map. If we want
+Now, let's zoom out all the way back and place a marker at the north of
+Brazil, as shown. To _place_ a marker, simply click on the map. If we want
 to, we can also place multiple markers.
 
 We may also wish to clear all the placed markers. To do that, click on the
@@ -37,29 +35,29 @@ of the toolbar.
 
 ![md](./images/tutorial-03.jpg)
 
-After that, we need to *select* one of the markers in order download its 
-Landsat pixel data. To do that, simply click on an already placer marker, 
+After that, we need to _select_ one of the markers in order download its
+Landsat pixel data. To do that, simply click on an already placer marker,
 and it will be highlighted. Only one marker may be selected at a time.
 
 By selecting a marker, we can now choose a combination of which satellites
-to download from using the drop-down menu, located on the bottom of the 
+to download from using the drop-down menu, located on the bottom of the
 toolbar. For instance, let's choose all the available satellites products:
 Landsat 5, 7 and 8 SR.
 
 ![md](./images/tutorial-04.jpg)
 
-Then, we press the **[<i class="fa fa-download"></i> Get Data]** blue 
-button, located on the right side of the toolbar. By pressing that button, 
-the download will start. We can keep track of the download progress by 
-looking to the lower right corner. All the historical data available are 
+Then, we press the **[<i class="fa fa-download"></i> Get Data]** blue
+button, located on the right side of the toolbar. By pressing that button,
+the download will start. We can keep track of the download progress by
+looking to the lower right corner. All the historical data available are
 downloaded, which should take less than 10 seconds for the three products
 selected.
 
 <small> Note: as of the writing of this guide, not all Surface Reflectance
 data are availble from GEE. So, depending on where we place our markers,
-we may face a message indicating that *'No data available for the chosen* 
-*satellite(s) and/or region... Please change your query and try again.'*. 
-Since we rely heavily on GEE to download the data, there's nothing we can 
+we may face a message indicating that _'No data available for the chosen_
+_satellite(s) and/or region... Please change your query and try again.'_.
+Since we rely heavily on GEE to download the data, there's nothing we can
 do yet. We're sorry for that. </small>
 
 ![md](./images/tutorial-05.jpg)
@@ -74,7 +72,7 @@ locally save the results as files.
 
 ![md](./images/tutorial-06.jpg)
 
-First, let's choose which satellite time series date to visualize. Note 
+First, let's choose which satellite time series date to visualize. Note
 that, even though we downloaded data from Landsat 5, 7 and 8 SR, we're
 can still analyze them separately. However, let's proceed by choosing
 all of them.
@@ -83,7 +81,7 @@ As we can see, the time series of the first spectral band
 (`b1`) is plotted for all satellites. A colored legend distinguishes the
 different sources.
 
-<small> Note: be careful when comparing *spectral bands* data from 
+<small> Note: be careful when comparing _spectral bands_ data from
 different satellites, as they may not correspond to the same wavelength range! Read more about this [here](https://landsat.usgs.gov/what-are-band-designations-landsat-satellites). </small>
 
 ![md](./images/tutorial-07.jpg)
@@ -94,7 +92,7 @@ NDVI time series.
 
 ![md](./images/tutorial-08.jpg)
 
-If we want to, we can also download *all* the time series data as a file.
+If we want to, we can also download _all_ the time series data as a file.
 To do that, press the **[<i class="fa fa-download"></i> Data]** blue
 button. All the data will be downloaded as a .CSV, ordered by the acquisiton
 date. Also, an additional column is included, in order to distinguish the
@@ -109,7 +107,7 @@ formats.
 
 ![md](./images/tutorial-10.jpg)
 
-Next, we select the *change detection algorithm*. Three options are available: **bfastmonitor**, **bfast01** and **bfast**. More information
+Next, we select the _change detection algorithm_. Three options are available: **bfastmonitor**, **bfast01** and **bfast**. More information
 about these algorithms can be found [here](http://bfast.r-forge.r-project.org/).
 
 ![md](./images/tutorial-11.jpg)
@@ -120,14 +118,14 @@ left side-bar: `formula`, `history period type`, `harmonic order`, and
 results, which can be verified on the right side plot. Here, we set the
 maximum value of the `harmonic order` to 9 to avoid some problems.
 
-Similar to the time series, we can also download the *results* of the change detection algorithms as .RDS data files, by clicking on the **[<i class="fa fa-download"></i> Results]** blue button. If we wish to download the plot, we can press the **[<i class="fa fa-download"></i> Plot]** blue button.
+Similar to the time series, we can also download the _results_ of the change detection algorithms as .RDS data files, by clicking on the **[<i class="fa fa-download"></i> Results]** blue button. If we wish to download the plot, we can press the **[<i class="fa fa-download"></i> Plot]** blue button.
 
 For more information on how to load .RDS files on R, please check this [link](http://www.fromthebottomoftheheap.net/2012/04/01/saving-and-loading-r-objects/).
 
 ![md](./images/tutorial-12.jpg)
 
 By selecting **bfast01**, we can tweak two parameters: `formula`, and `harmonic order`.
-Here, the maximum value of the `harmonic order` is dynamically set 
+Here, the maximum value of the `harmonic order` is dynamically set
 depending on the time series data length and the choice of the `formula`
 parameter.
 
