@@ -34,6 +34,9 @@ packs <- c(
 	"reticulate"
 )
 
+library(reticulate)
+use_python("/usr/bin/python", required = TRUE)
+
 # GitHub
 packs_gh <- c(
 	"verbe039/bfast"
@@ -290,11 +293,21 @@ plotBfm <- function(serie, matchCol, bfmOut, xAxisCustom, ylimCustom, ylab) {
 		   pch = 20,
 		   col = "darkgreen")
 
-	# draw fit based on stable history
-	lines(y = bfmOut$tspp$prediction,
-		  x = serie$date[which(condPred)],
-		  col = "blue",
-		  lwd = 1.5)
+	
+	
+	
+	# I don't know why but aparently tspp$prediction doesn't have a name anymore,
+	# it is just an empty string
+	 
+	# let's get that column as the previous pred
+	pred_col   <- which(colnames(bfmOut$tspp) == "")
+	pred_vals  <- bfmOut$tspp[, pred_col]
+	row_idx    <- as.integer(rownames(bfmOut$tspp))
+	pred_dates <- serie$date[row_idx]
+	lines(x = pred_dates,
+	      y = pred_vals,
+	      col = "blue",
+	      lwd = 1.5)
 
 	# draw line of start of the monitoring period
 	abline(v = as.Date(date_decimal(bfmOut$monitor[1]), format = "YYYY-MM-DD"),
@@ -567,9 +580,9 @@ iconSet <- awesomeIconList(
 # define all available satellites the user can choose from:
 # LHS is the alias name; RHS is the name that GEE understands
 satChoices <- c(
-	"Landsat 5 SR" = "LT05/C01/T1_SR",
-	"Landsat 7 SR" = "LE07/C01/T1_SR",
-	"Landsat 8 SR" = "LC08/C01/T1_SR"
+	"Landsat 5 SR" = "LT05/C02/T1_L2",
+	"Landsat 7 SR" = "LE07/C02/T1_L2",
+	"Landsat 8 SR" = "LC08/C02/T1_L2"
 )
 
 # coordinates (long, lat, zoom) of the default fixed center
@@ -581,9 +594,9 @@ satPar <- function(x) {
 	switch(
 		x,
 
-		"LT05/C01/T1_SR" = c(customPalette[1], 15),
-		"LE07/C01/T1_SR" = c(customPalette[2], 16),
-		"LC08/C01/T1_SR" = c(customPalette[3], 17),
+		"LT05/C02/T1_L2" = c(customPalette[1], 15),
+		"LE07/C02/T1_L2" = c(customPalette[2], 16),
+		"LC08/C02/T1_L2" = c(customPalette[3], 17),
 		"Mixed" = c(customPalette[4], 18)
 	)
 }
