@@ -1,0 +1,23 @@
+{
+    // Disable all linting
+    "python.linting.enabled": false,
+    
+    // Disable specific linters (updated syntax)
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.mypyEnabled": false,
+    
+    // Disable newer Python language server linting options
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportUndefinedVariable": "none",
+        "reportUnusedImport": "none",
+        "reportGeneralTypeIssues": "none"
+    },
+    
+    // Disable auto-formatting on save
+    "editor.formatOnSave": false,
+    "[python]": {
+        "editor.formatOnSave": false
+    }
+}
