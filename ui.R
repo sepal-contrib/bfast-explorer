@@ -49,7 +49,7 @@ shinyUI(
 											<i class="fa fa-search"></i>
 										</button>
 									</label>
-									<input id="select_search" type="text" class="form-control" value="" placeholder="Search for a location..."/>
+									<input id="select_search" type="text" class="form-control" value="" placeholder="longitude, latitude"/>
 								</div>
 							</div>
 							'),

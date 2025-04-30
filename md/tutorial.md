@@ -1,5 +1,3 @@
-
-
 *This tutorial comprehends the BFAST Explorer v0.0.1. Notice that if you are using a newer version, some features might be different.*
 
 ***
@@ -25,11 +23,7 @@ and a navigation toolbar. Feel free to zoom and pan the map.
 
 ![md](./images/tutorial-01.jpg)
 
-If we wish, we can also use the *search field* located on the top of the 
-toolbar to search for a location. Then, the map 
-automatically zooms to the desired location, similar to how Google Maps 
-works. In the example, we searched for `unicamp campinas`, which is the
-University of Campinas.
+If we wish to navigate to a specific location, we can use the *coordinate entry field* located at the top of the toolbar. This field accepts geographic coordinates in the format "longitude, latitude" (e.g., "-47.06,-22.82"). After entering the coordinates and clicking the search button, the map automatically zooms to the specified location.
 
 ![md](./images/tutorial-02.jpg)
 

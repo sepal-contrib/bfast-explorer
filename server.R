@@ -164,24 +164,29 @@ shinyServer(function(input, output, session) {
 
 	# update v$searchLoc with map search query
 	observeEvent(input$action_search, {
-		# evaluate geocode, but suppress messages and warnings
-		options(warn = -1)
-		#gc <- suppressMessages(geocode(input$select_search))
-	  gc <- strsplit(input$select_search, ",")
-		gc$lon <- gc[[1]][1]
-		gc$lat <- gc[[1]][2]
-		options(warn = 0)
-		if (is.na(gc$lon)) {
-			# defaults view to the center of the atlantic ocean
-			v$searchLoc$lon <- viewCenter[1]
-			v$searchLoc$lat <- viewCenter[2]
-			v$searchLoc$zoom <- viewCenter[3]
-		} else {
-			# if user-selected region exists, center on it
-			v$searchLoc$lon <- gc$lon
-			v$searchLoc$lat <- gc$lat
-			v$searchLoc$zoom <- 19
-		}
+	  options(warn = -1)
+	  if (grepl(",", input$select_search)) {
+	    # Try to parse as coordinates
+	    coords <- strsplit(input$select_search, ",")[[1]]
+	    coords <- as.numeric(trimws(coords))
+	    
+	    # Check if we have valid coordinates
+	    if (length(coords) >= 2 && !is.na(coords[1]) && !is.na(coords[2])) {
+	      v$searchLoc$lon <- coords[1]
+	      v$searchLoc$lat <- coords[2]
+	      v$searchLoc$zoom <- 16
+	    } else {
+	      v$searchLoc$lon <- viewCenter[1]
+	      v$searchLoc$lat <- viewCenter[2]
+	      v$searchLoc$zoom <- viewCenter[3]
+	      showNotification("Invalid coordinates. Please use format: longitude,latitude", 
+	                      type = "error", duration = 4)
+	    }
+	  } else {
+	    showNotification("Please enter coordinates in format: longitude,latitude", 
+	                    type = "warning", duration = 4)
+	  }
+	  options(warn = 0)
 	})
 
 	# change the state of clearMarkers ab if at least a marker is drawn
