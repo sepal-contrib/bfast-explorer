@@ -8,7 +8,7 @@ _This tutorial comprehends the BFAST Explorer v0.0.1. Notice that if you are usi
 
 Three change detection algorithms - **bfastmonitor**, **bfast01** and **bfast** - are used in order to investigate temporal changes in trend and seasonal components, via breakpoint detection.
 
-If you encounter any bugs, please send a message to almeida.xan@gmail.com, or create an issue on the [GitHub page](https://github.com/almeidaxan/bfast-explorer/).
+If you encounter any bugs, please send a message to almeida.xan@gmail.com, or create an issue on the [GitHub page](https://github.com/almeidaxan/bfast-explorer/). If you're running this tool inside SEPAL, please use https://groups.google.com/g/sepal-users for assisntance.
 
 ## Tutorial
 
